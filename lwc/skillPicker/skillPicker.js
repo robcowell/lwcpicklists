@@ -1,4 +1,5 @@
-import { LightningElement, track } from 'lwc';
+/* eslint-disable no-console */
+import { LightningElement } from 'lwc';
 
 export default class App extends LightningElement {
     get vendors() {
@@ -38,5 +39,12 @@ export default class App extends LightningElement {
                 value: 'developer',
             },
         ];
+    }
+
+    handleOnVendorSelected (event)
+    {
+        console.log(event.target);
+        
+        console.log(event.target.value);
     }
 }

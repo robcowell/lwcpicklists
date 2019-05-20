@@ -1,7 +1,7 @@
 <template>
         <div class="slds-p-around_x-large">
            
-            <select multiple name="VendorPicklist">
+            <select multiple name="VendorPicklist" onchange={handleOnVendorSelected}>
             <template for:each={vendors} for:item="vendor">
                 <option key={vendor.id}>
                     {vendor.label}

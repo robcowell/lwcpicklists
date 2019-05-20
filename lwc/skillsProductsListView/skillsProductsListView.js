@@ -67,6 +67,7 @@ export default class App extends LightningElement
     }
 
     handleOnItemSelected (event) {
+        console.log('Select');
         if (event.detail) {
             this.yourSelectedValues = '';
             let self = this;
