@@ -1,0 +1,32 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "baseUrl": ".",
+        "paths": {
+            "c/skillsProductsListView": [
+                "skillsProductsListView/skillsProductsListView.js"
+            ],
+            "c/SkillsProductsListView": [
+                "SkillsProductsListView/SkillsProductsListView.js"
+            ],
+            "c/multiPickList": [
+                "multiPickList/multiPickList.js"
+            ],
+            "c/pickListItem": [
+                "pickListItem/pickListItem.js"
+            ],
+            "c/skillPicker": [
+                "skillPicker/skillPicker.js"
+            ]
+        }
+    },
+    "include": [
+        "**/*",
+        "../../../../.sfdx/typings/lwc/**/*.d.ts"
+    ],
+    "typeAcquisition": {
+        "include": [
+            "jest"
+        ]
+    }
+}

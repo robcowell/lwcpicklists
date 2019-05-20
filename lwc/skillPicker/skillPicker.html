@@ -1,0 +1,28 @@
+<template>
+        <div class="slds-p-around_x-large">
+           
+            <select multiple name="VendorPicklist">
+            <template for:each={vendors} for:item="vendor">
+                <option key={vendor.id}>
+                    {vendor.label}
+                </option>
+            </template>
+            </select>
+            
+            <select multiple name="ProductPicklist">
+            <template for:each={products} for:item="product">
+                <option key={product.id}>
+                    {product.label}
+                </option>
+            </template>
+            </select>
+    
+            <select multiple name="SkillPicklist">
+            <template for:each={skills} for:item="skill">
+                <option key={skill.id}>
+                    {skill.label}
+                </option>
+            </template>
+            </select>
+        </div>
+    </template>
