@@ -3,12 +3,6 @@
         "experimentalDecorators": true,
         "baseUrl": ".",
         "paths": {
-            "c/skillsProductsListView": [
-                "skillsProductsListView/skillsProductsListView.js"
-            ],
-            "c/SkillsProductsListView": [
-                "SkillsProductsListView/SkillsProductsListView.js"
-            ],
             "c/multiPickList": [
                 "multiPickList/multiPickList.js"
             ],
@@ -17,6 +11,15 @@
             ],
             "c/skillPicker": [
                 "skillPicker/skillPicker.js"
+            ],
+            "c/skillsProductsListView": [
+                "skillsProductsListView/skillsProductsListView.js"
+            ],
+            "c/errorPanel": [
+                "errorPanel/errorPanel.js"
+            ],
+            "c/ldsUtils": [
+                "ldsUtils/ldsUtils.js"
             ]
         }
     },

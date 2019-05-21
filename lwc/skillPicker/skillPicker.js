@@ -1,50 +1,59 @@
+/* eslint-disable @lwc/lwc/no-async-operation */
+/* eslint-disable vars-on-top */
 /* eslint-disable no-console */
-import { LightningElement } from 'lwc';
+
+import { LightningElement, wire, track } from 'lwc';
+import getVendors from '@salesforce/apex/VendorController.getVendors';
+import getProducts from '@salesforce/apex/VendorProductController.getProducts';
+import getSkills from '@salesforce/apex/ProductSkillController.getSkills';
 
 export default class App extends LightningElement {
-    get vendors() {
-        return [
-            {
-                label: 'Salesforce',
-                value: 'salesforce',
-            },
-            {
-                label: 'Microsoft',
-                value: 'microsoft',
-            },
-        ];
-    }
 
-    get products() {
-        return [
-            {
-                label: 'Sales Cloud',
-                value: 'salescloud',
-            },
-            {
-                label: 'Windows',
-                value: 'windows',
-            },
-        ];
-    }
+    @wire(getVendors)
+    vendors;
 
-    get skills() {
-        return [
-            {
-                label: 'Admin',
-                value: 'admin',
-            },
-            {
-                label: 'Developer',
-                value: 'developer',
-            },
-        ];
-    }
+    @wire(getProducts, {vendors : '$selectedVendors' })
+    products;
 
-    handleOnVendorSelected (event)
+    @wire(getSkills, {products : '$selectedProducts'})
+    skills;
+
+    @track selectedVendors = '';
+    @track selectedProducts = '';
+    @track selectedSkills = '';
+
+    handleOnSelectedVendors (event)
     {
-        console.log(event.target);
+        let selections = [ ];
+        let self = this;
+        var select = event.target;
         
-        console.log(event.target.value);
+            for (var i = 0; i < select.length; i++)
+            {
+                if (select.options[i].selected) selections.push(select.options[i].value);
+            }
+
+            self.selectedVendors = "'" + selections.join("','") + "'";
+            
+        
+        console.log(self.selectedVendors);
+
+    }
+
+    handleOnSelectedProducts (event)
+    {
+        let selections = [ ];
+        let self = this;
+        var select = event.target;
+        
+            for (var i = 0; i < select.length; i++)
+            {
+                if (select.options[i].selected) selections.push(select.options[i].value);
+            }
+
+            self.selectedProducts = "'" + selections.join("','") + "'";
+            
+        
+        console.log(self.selectedProducts);
     }
 }

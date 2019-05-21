@@ -1,27 +1,42 @@
 <template>
         <div class="slds-p-around_x-large">
            
-            <select multiple name="VendorPicklist" onchange={handleOnVendorSelected}>
-            <template for:each={vendors} for:item="vendor">
-                <option key={vendor.id}>
-                    {vendor.label}
-                </option>
-            </template>
+            <select multiple name="VendorPicklist" onchange={handleOnSelectedVendors}>
+                <template if:true={vendors.data}>
+                    <template for:each={vendors.data} for:item="vendor">
+                        <option key={vendor.id}>
+                            {vendor.Name}
+                        </option>
+                    </template>
+                </template>
+                <template if:true={vendors.error}>
+                        <c-error-panel errors={vendors.error}></c-error-panel>
+                </template>
             </select>
             
-            <select multiple name="ProductPicklist">
-            <template for:each={products} for:item="product">
-                <option key={product.id}>
-                    {product.label}
-                </option>
-            </template>
+            <select multiple name="ProductPicklist" onchange={handleOnSelectedProducts}>
+                <template if:true={products.data}>
+                    <template for:each={products.data} for:item="product">
+                        <option key={product.id}>
+                            {product.Name}
+                        </option>
+                    </template>
+                </template>
+                <template if:true={products.error}>
+                        <c-error-panel errors={products.error}></c-error-panel>
+                </template>
             </select>
     
-            <select multiple name="SkillPicklist">
-            <template for:each={skills} for:item="skill">
-                <option key={skill.id}>
-                    {skill.label}
-                </option>
+            <select multiple name="SkillPicklist" onchange={handleOnSelectedSkills}>
+                <template if:true={skills.data}>
+                    <template for:each={skills.data} for:item="skill">
+                    <option key={skill.id}>
+                        {skill.Name}
+                    </option>
+                </template>
+            </template>
+            <template if:true={products.error}>
+                    <c-error-panel errors={skills.error}></c-error-panel>
             </template>
             </select>
         </div>
